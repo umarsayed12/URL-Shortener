@@ -3,10 +3,14 @@ const URL = require("../models/url");
 async function generateShortUrl(req, res) {
   const body = req.body;
   if (!body.url) return res.status(400).json({ error: "URL is required" });
+  let url = body.url;
+  if (!/^https?:\/\//i.test(url)) {
+    url = "https://" + url;
+  }
   const shortID = nanoid(7);
   await URL.create({
     shortId: shortID,
-    redirectURL: body.url,
+    redirectURL: url,
     visitAnalytics: [],
     createdBy: req.user._id,
   });

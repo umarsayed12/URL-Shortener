@@ -4,10 +4,11 @@ const {
   getAnalytics,
   getRedirectedURL,
 } = require("../controllers/url");
+const { userAuthMiddleware } = require("../middlewares/auth");
 const router = express.Router();
 
-router.post("/", generateShortUrl);
+router.post("/", userAuthMiddleware, generateShortUrl);
 router.get("/:id", getRedirectedURL);
-router.get("/analytics/:id", getAnalytics);
+router.get("/analytics/:id", userAuthMiddleware, getAnalytics);
 
 module.exports = router;

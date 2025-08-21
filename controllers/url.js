@@ -8,6 +8,7 @@ async function generateShortUrl(req, res) {
     shortId: shortID,
     redirectURL: body.url,
     visitAnalytics: [],
+    createdBy: req.user._id,
   });
 
   return res.render("home", {

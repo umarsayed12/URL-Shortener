@@ -2,7 +2,9 @@ const express = require("express");
 const router = express.Router();
 const URL = require("../models/url");
 router.get("/", (req, res) => {
-  return res.render("home");
+  return res.render("home", {
+    user: req.user,
+  });
 });
 router.get("/analytics", async (req, res) => {
   if (!req.user) return res.redirect("/login");

@@ -7,7 +7,7 @@ async function userSignup(req, res) {
     email,
     password,
   });
-  return res.redirect("/");
+  return res.redirect("/login");
 }
 async function userLogin(req, res) {
   const { email, password } = req.body;
@@ -23,5 +23,13 @@ async function userLogin(req, res) {
   res.cookie("uid", token);
   return res.redirect("/");
 }
+async function userLogout(req, res) {
+  res.clearCookie("uid", {
+    httpOnly: true,
+    secure: true,
+    sameSite: "strict",
+  });
+  return res.redirect("/login");
+}
 
-module.exports = { userSignup, userLogin };
+module.exports = { userSignup, userLogin, userLogout };

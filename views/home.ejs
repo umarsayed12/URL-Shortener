@@ -139,6 +139,20 @@
         transform: translateY(1px);
         box-shadow: 0 6px 16px rgba(15, 23, 42, 0.35);
       }
+      #signup-btn {
+        right: 30px;
+        padding: 18px 14px;
+        height: 42px;
+        top: 20px;
+      }
+      #login-btn {
+        right: 120px;
+        padding: 20px 16px;
+        top: 20px;
+        
+        background-color: #1e3a8a;
+        color: #fff;
+      }
 
       .arrow {
         width: 18px;
@@ -263,7 +277,37 @@
       <span class="bubble"></span>
       <span class="bubble"></span>
     </div>
-
+    <% if (!locals.user) { %>
+     <a
+        href="/login"
+          id="login-btn"
+          class="submit-btn"
+          type="submit"
+          aria-label="Submit"
+        >
+          Login
+          </svg>
+        </a>
+        <a
+        href="/signup"
+          id="signup-btn"
+          class="submit-btn"
+          type="submit"
+          aria-label="Submit"
+        >
+          Signup
+        </a>
+    <% } else { %>
+    <button
+          id="logout-btn"
+          class="submit-btn"
+          type="submit"
+          aria-label="Submit"
+        >
+          Logout
+        </button>
+    <% } %>
+        
     <main class="card" role="main">
       <h1>zyp.io</h1>
       <p class="lead">
@@ -304,6 +348,7 @@
             </svg>
           </button>
         </div>
+        <% if (locals.user) { %>
         <a
           href="/analytics"
           class="submit-btn"
@@ -312,6 +357,7 @@
         >
           View Analytics
         </a>
+        <% } %>
       </form>
       <% if (locals.id) { %>
       <table class="url-table">
@@ -371,7 +417,6 @@
     <footer>Built with 💖 by Umar Khursheed</footer>
 
     <style>
-      /* helper to visually hide the label but keep it accessible */
       .visually-hidden {
         position: absolute !important;
         height: 1px;
@@ -394,6 +439,23 @@
           }, 1000);
         });
       }
+      
+      document.getElementById("logout-btn").addEventListener("click", async () => {
+        try {
+          const res = await fetch("/user/logout", {
+            method: "POST",
+            credentials: "include"
+          });
+          if (res.ok) {
+        location.reload();
+        
+      } else {
+        console.error("Logout failed");
+      }
+          } catch (err) {
+          console.error(err);
+          }
+      });
     </script>
   </body>
 </html>

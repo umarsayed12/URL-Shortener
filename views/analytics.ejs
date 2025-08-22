@@ -158,6 +158,9 @@
         text-decoration: none;
         transform: scale(1.1);
       }
+      #home-btn {
+        padding: 18px 18px;
+      }
       .originalUrl {
         text-overflow: ellipsis;
         max-width: 200px;
@@ -205,7 +208,7 @@
     <header>All Shortened URLs</header>
     <% if (allUrls.length) { %>
     <div class="back">
-      <a href="/" class="submit-btn"> Home </a>
+      <a id="home-btn" href="/" class="submit-btn"> Home </a>
     </div>
     <div class="table-container">
       <table>

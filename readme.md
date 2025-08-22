@@ -1,4 +1,4 @@
-# zyp.io 🚀
+# zyp.io
 
 zyp.io is a simple and powerful **URL Shortener** with authentication, analytics, and JWT-based session management.  
 Built using **Node.js, Express, MongoDB, and EJS**.

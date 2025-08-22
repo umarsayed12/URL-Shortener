@@ -1,8 +1,3 @@
-Here’s a clean **README.md** tailored for your project **zyp.io** (URL shortener with authentication, analytics, and JWT-based login).
-
----
-
-```markdown
 # zyp.io 🚀
 
 zyp.io is a simple and powerful **URL Shortener** with authentication, analytics, and JWT-based session management.  
@@ -21,6 +16,7 @@ Built using **Node.js, Express, MongoDB, and EJS**.
 ---
 
 ## 📂 Project Structure
+
 ```
 
 zyp.io/
@@ -54,17 +50,18 @@ zyp.io/
 │── .env # Environment variables
 │── package.json
 
-````
+```
 
 ---
 
 ## ⚙️ Installation & Setup
 
 ### 1. Clone the repository
+
 ```bash
-git clone https://github.com/your-username/zyp.io.git
-cd zyp.io
-````
+git clone https://github.com/umarsayed12/URL-Shortener.git
+cd URL-Shortener
+```
 
 ### 2. Install dependencies
 
@@ -77,9 +74,9 @@ npm install
 Create a `.env` file in the root directory:
 
 ```env
-PORT=5000
+PORT=8000
 MONGODB_URI=your_mongodb_connection_string
-JWT_SECRET=your_secret_key
+SECRET_KEY=your_jwt_secret_key
 ```
 
 ### 4. Run the project
@@ -89,7 +86,7 @@ npm start
 ```
 
 By default, the server runs at:
-👉 [http://localhost:5000](http://localhost:5000)
+👉 [http://localhost:8000](http://localhost:8000)
 
 ---
 
@@ -98,9 +95,6 @@ By default, the server runs at:
 You can deploy **zyp.io** on:
 
 - [Render](https://render.com/)
-- [Railway](https://railway.app/)
-- [Heroku](https://www.heroku.com/) (if you still have access)
-- Any VPS (AWS, DigitalOcean, etc.) using **PM2 + Nginx**
 
 ---
 
@@ -135,5 +129,4 @@ A minimal, secure, and scalable URL shortener.
 
 ```
 
----
 ```
